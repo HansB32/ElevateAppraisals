@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Elevate Appraisals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="Elevate Appraisals Full.png" sizes="32x32" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-header-wrap">
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Elevate Appraisals home">
+          <img src="Elevate Appraisals Transparent Background.png" alt="Elevate Appraisals logo" />
+          <div class="tag">Elevated Standards • Trusted Valuations</div>
+        </a>
+
+        <nav class="primary" aria-label="Primary navigation">
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="coverage.html">Coverage</a>
+          <a href="contact.html" class="active">Contact</a>
+        </nav>
+
+        <div class="nav-right">
+          <a class="btn-outline" href="#">Learn</a>
+          <a class="cta" href="contact.html">Request a Quote</a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <main class="container">
+    <h1>Contact</h1>
+    <p>If you have questions or want a quote, use the form below or email directly.</p>
+
+    <form class="contact-form" action="mailto:elevateappraisals@outlook.com" method="POST" enctype="text/plain">
+  <div class="form-panel">
+    <label for="name">Name</label>
+    <input id="name" name="Name" required>
+    <label for="email">Email</label>
+    <input id="email" name="Email" type="email" required>
+    <label for="phone">Phone (optional)</label>
+    <input id="phone" name="Phone">
+    <label for="message">Message</label>
+    <textarea id="message" name="Message" rows="6" required placeholder="If requesting a quote, please include the property address, purpose of the appraisal, and desired turnaround time."></textarea>  </div>
+  <div class="form-actions">
+    <button class="button" type="submit">Send Request</button>
+    <a class="button" href="mailto:elevateappraisals@outlook.com">Email Directly</a>
+  </div>
+</form>
+
+    <!-- Outline for expansion -->
+    <section style="margin-top:1rem;">
+      <h2>Office Hours & Turnaround</h2>
+      <div class="card" style="margin-top:0.75rem;">
+        <h3>Office Hours</h3>
+        <p style="color:var(--muted);">Monday - Friday: 9am - 5pm</p>
+        <p style="color:var(--muted);">Closed on Major Holidays</p>
+        <h3>Turnaround Time</h3>
+        <p style="color:var(--muted);">Typical turnaround time is 3-5 business days.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer">
+        <div class="footer-top">
+          <div class="cols">
+            <div class="col">
+              <strong>Elevate Appraisals</strong>
+              <div style="opacity:0.9;margin-top:6px">Elevated Standards. Trusted Valuations. — Serving Southeast Idaho.</div>
+            </div>
+            <div class="col">
+              <div><strong>Contact</strong></div>
+              <div style="margin-top:6px"><a href="mailto:ElevateAppraisals@outlook.com" style="color:#fff;">ElevateAppraisals@outlook.com</a></div>
+              <div style="margin-top:6px">(208) 970-2963</div>
+            </div>
+            <div class="col">
+              <div><strong>Follow</strong></div>
+              <div style="margin-top:6px"><a href="#" style="color:#fff;text-decoration:none">LinkedIn</a></div>
+            </div>
+          </div>
+          <div class="footer-bottom">&copy; 2025 Elevate Appraisals. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const toggle = document.querySelector('.mobile-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      toggle?.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        if (mobileMenu.style.display === 'block') mobileMenu.style.display = 'none'; else mobileMenu.style.display = 'block';
+      });
+      mobileMenu?.addEventListener('click', (e) => { if (e.target.tagName === 'A') { mobileMenu.style.display = 'none'; toggle?.setAttribute('aria-expanded','false'); } });
+      const revealElems = Array.from(document.querySelectorAll('.reveal'));
+      const revealOnScroll = () => { const offset = window.innerHeight * 0.85; revealElems.forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < offset) el.classList.add('visible'); }); };
+      revealOnScroll(); window.addEventListener('scroll', revealOnScroll, {passive:true});
+      document.querySelectorAll('.accordion-title').forEach(title=>title.addEventListener('click',()=>title.parentElement.classList.toggle('active')));
+    })();
+  </script>
+</body>
+</html>

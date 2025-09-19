@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Coverage &mdash; Elevate Appraisals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="Elevate Appraisals Full.png" sizes="32x32" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="site-header-wrap">
+      <header class="site-header" id="site-header">
+        <div class="container header-inner">
+          <a class="brand" href="index.html" aria-label="Elevate Appraisals home">
+            <img src="Elevate Appraisals Transparent Background.png" alt="Elevate Appraisals logo" />
+            <div class="tag">Elevated Standards &bull; Trusted Valuations</div>
+          </a>
+          <nav class="primary" aria-label="Primary navigation">
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="coverage.html" class="active">Coverage</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <div class="nav-right">
+            <a class="btn-outline" href="#">Learn</a>
+            <a class="cta" href="contact.html">Request a Quote</a>
+            <button class="mobile-toggle" aria-expanded="false" aria-controls="mobile-menu">&#9776;</button>
+          </div>
+        </div>
+      </header>
+    </div>
+    <div id="mobile-menu" style="display:none; border-top:1px solid rgba(0,0,0,0.04); background:transparent;">
+      <div class="container" style="padding:0.75rem 1.25rem;">
+        <nav style="display:flex;flex-direction:column;gap:0.5rem;">
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="coverage.html">Coverage</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <main class="coverage-main">
+      <section class="coverage-hero">
+        <div class="container">
+          <div class="surface-card coverage-hero-card reveal">
+            <div class="coverage-hero-text">
+              <span class="eyebrow">Service Area</span>
+              <h1>Local coverage, regional reach.</h1>
+              <p>Elevate Appraisals supports lenders, attorneys, and private clients across Southeast Idaho with responsive fieldwork and well-supported reports.</p>
+              <ul class="coverage-stats">
+                <li><span class="stat-number">9</span> core counties available for onsite inspections</li>
+                <li><span class="stat-number">1 hr</span> average response time on new assignment requests</li>
+                <li><span class="stat-number">1,000+</span> valuations delivered across residential, land, and income assets</li>
+              </ul>
+            </div>
+            <div class="coverage-hero-aside">
+              <h3>Counties at a glance</h3>
+              <p class="muted">Bonneville &bull; Madison &bull; Jefferson &bull; Bannock &bull; Bingham &bull; Fremont &bull; Teton &bull; Butte &bull; Power</p>
+              <a class="btn-outline" href="contact.html">Request availability</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="coverage-map reveal" aria-label="Coverage map and travel fees">
+        <div class="container">
+          <div class="coverage-grid">
+            <div class="coverage-map-card surface-card">
+              <div class="coverage-map-frame id-map">
+                <object data="idaho-counties.svg" type="image/svg+xml" id="coverage-map" class="coverage-map-object"></object>
+              </div>
+              <div id="map-tooltip" class="map-tooltip" role="status" aria-live="polite"></div>
+              <p class="coverage-caption">Hover or tap a highlighted county to see the name.</p>
+            </div>
+            <div class="coverage-fees surface-card" id="fees">
+              <div class="coverage-fees-header">
+                <div>
+                  <h2>Travel &amp; Fees</h2>
+                  <p class="muted">Select a county to view base pricing and travel adjustments. Update FeesConfig to match your pricing.</p>
+                </div>
+              </div>
+              <div class="fee-controls">
+                <label for="county-select" class="fee-label">County:</label>
+                <select id="county-select" class="fee-select" aria-label="Select county"></select>
+                <div id="county-note" class="muted"></div>
+              </div>
+              <div class="fee-table-wrap">
+                <table class="fee-table" aria-describedby="county-note">
+                  <thead>
+                    <tr>
+                      <th scope="col">Service</th>
+                      <th scope="col">Base Fee</th>
+                      <th scope="col">County Travel</th>
+                      <th scope="col">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody id="fee-tbody"></tbody>
+                </table>
+              </div>
+              <div class="muted fee-note">Estimates are for planning purposes and confirmed once we review property complexity, access, and report scope.</div>
+            </div>
+          </div>
+          <div class="coverage-extra surface-card reveal">
+            <h3>Out-of-Area Requests</h3>
+            <p class="muted">We review assignments outside the core counties on a case-by-case basis. Share the property details and timeline, and we will confirm availability and travel considerations.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer">
+        <div class="footer-top">
+          <div class="cols">
+            <div class="col">
+              <strong>Elevate Appraisals</strong>
+              <div style="opacity:0.9;margin-top:6px">Elevated Standards. Trusted Valuations. — Serving Southeast Idaho.</div>
+            </div>
+            <div class="col">
+              <div><strong>Contact</strong></div>
+              <div style="margin-top:6px"><a href="mailto:ElevateAppraisals@outlook.com" style="color:#fff;">ElevateAppraisals@outlook.com</a></div>
+              <div style="margin-top:6px">(208) 970-2963</div>
+            </div>
+            <div class="col">
+              <div><strong>Follow</strong></div>
+              <div style="margin-top:6px"><a href="#" style="color:#fff;text-decoration:none">LinkedIn</a></div>
+            </div>
+          </div>
+          <div class="footer-bottom">&copy; 2025 Elevate Appraisals. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+    <script>
+  // Mobile nav + reveal animations
+  (function(){
+    const toggle = document.querySelector('.mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggle?.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    mobileMenu?.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        mobileMenu.style.display = 'none';
+        toggle?.setAttribute('aria-expanded','false');
+      }
+    });
+
+    const revealElems = Array.from(document.querySelectorAll('.reveal'));
+    const revealOnScroll = () => {
+      const offset = window.innerHeight * 0.85;
+      revealElems.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < offset) el.classList.add('visible');
+      });
+    };
+    revealOnScroll();
+    window.addEventListener('scroll', revealOnScroll, {passive:true});
+
+    document.querySelectorAll('.accordion-title').forEach(title =>
+      title.addEventListener('click', () =>
+        title.parentElement.classList.toggle('active')
+      )
+    );
+  })();
+
+  // Map wiring + tooltip + dropdown integration
+  (function(){
+    const tooltip = document.getElementById('map-tooltip');
+    const HIGHLIGHT_IDS = ['Bonneville','Madison','Jefferson','Bannock','Bingham','Fremont','Teton','Butte','Power'];
+
+    const wireSVG = (svgRoot) => {
+      if (!svgRoot || !tooltip) return;
+      const paths = Array.from(svgRoot.querySelectorAll('path[id]'));
+
+      // Make all counties keyboard focusable
+      paths.forEach(p => {
+        p.classList.add('county');
+        p.setAttribute('tabindex','0');
+      });
+
+      // Highlight coverage counties
+      HIGHLIGHT_IDS.forEach(id => {
+        const el = svgRoot.querySelector('#' + CSS.escape(id));
+        if (el) el.style.fill = '#f59e0b';
+      });
+
+      // Tooltip helpers
+      const showTip = (text, x, y) => {
+        tooltip.textContent = text;
+        tooltip.style.display = 'block';
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+      };
+      const hideTip = () => {
+        tooltip.style.display = 'none';
+        tooltip.textContent = '';
+      };
+
+      // Wire up each county
+      paths.forEach(p => {
+        const rawName = (p.querySelector('title')?.textContent) || p.id;
+        const cleanName = rawName.replace(/\s*County$/, ''); // match dropdown values
+
+        p.addEventListener('mouseenter', (ev) => {
+          p.classList.add('hovered');
+          showTip(rawName, ev.pageX, ev.pageY);
+        });
+        p.addEventListener('mousemove', (ev) => { showTip(rawName, ev.pageX, ev.pageY); });
+        p.addEventListener('mouseleave', () => { p.classList.remove('hovered'); hideTip(); });
+
+        p.addEventListener('focus', (ev) => {
+          p.classList.add('hovered');
+          const r = p.getBoundingClientRect();
+          showTip(rawName, r.left + r.width / 2, r.top + window.scrollY);
+        });
+        p.addEventListener('blur', () => { p.classList.remove('hovered'); hideTip(); });
+
+        p.addEventListener('click', () => {
+          const sel = document.getElementById('county-select');
+          if (sel) {
+            const option = Array.from(sel.options).find(o => o.value === cleanName);
+            if (option) {
+              sel.value = cleanName;
+              sel.dispatchEvent(new Event('change'));
+              document.getElementById('fees')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              return;
+            }
+          }
+          location.href = 'contact.html?county=' + encodeURIComponent(cleanName);
+        });
+
+        p.addEventListener('keydown', (ev) => {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            p.click();
+          }
+        });
+      });
+    };
+
+    // Handle <object>-embedded SVG or inline SVG
+    const obj = document.getElementById('coverage-map');
+    if (obj && obj.contentDocument) {
+      const svgDoc = obj.contentDocument;
+      const svgEl = svgDoc.querySelector('svg');
+      if (svgEl) wireSVG(svgEl);
+    } else if (obj) {
+      obj.addEventListener('load', () => {
+        try {
+          const svgDoc = obj.contentDocument;
+          const svgEl = svgDoc.querySelector('svg');
+          if (svgEl) wireSVG(svgEl);
+        } catch (e) {
+          console.warn('Unable to access embedded SVG:', e);
+        }
+      });
+    } else {
+      const inlineSvg = document.querySelector('.id-map svg');
+      if (inlineSvg) wireSVG(inlineSvg);
+    }
+  })();
+
+  // Fee table logic
+  (function(){
+    const countySelect = document.getElementById('county-select');
+    const tbody = document.getElementById('fee-tbody');
+    const note = document.getElementById('county-note');
+    if (!countySelect || !tbody) return;
+
+    const FeesConfig = {
+      items: [
+        { id: 'sfr', label: 'Single-Family Residential (Conventional)', base: 425 },
+        { id: 'condo', label: 'Condominium', base: 425 },
+        { id: 'multi', label: '2-4 Unit Residential', base: 750 },
+        { id: 'land', label: 'Vacant Land', base: 350 },
+        { id: 'desktop', label: 'Desktop/Exterior-Only', base: 350 },
+        { id: 'rs', label: 'Rent Schedule', base: 150 },
+        { id: 'str', label: 'Short-Term Rental', base: 150 }
+      ],
+      counties: {
+        Bonneville: 0,
+        Madison: 0,
+        Jefferson: 0,
+        Bannock: 50,
+        Bingham: 0,
+        Fremont: 50,
+        Teton: 200,
+        Butte: 100,
+        Power: 50
+      },
+      homeBase: 'Bonneville'
+    };
+
+    const currency = (n) =>
+      new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+
+    const counties = Object.keys(FeesConfig.counties);
+
+    // Populate dropdown
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = 'Select a county...';
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    countySelect.appendChild(placeholder);
+
+    counties.forEach(name => {
+      const opt = document.createElement('option');
+      opt.value = name;
+      opt.textContent = name;
+      countySelect.appendChild(opt);
+    });
+
+    // Handle preset from query string
+    const params = new URLSearchParams(location.search);
+    const preset = params.get('county');
+    if (preset && counties.includes(preset)) {
+      countySelect.value = preset;
+    }
+
+    function renderTable(county) {
+      const travel = FeesConfig.counties[county] ?? 0;
+      note.textContent = county ? county + ' county - travel adj. ' + currency(travel) : '';
+      tbody.innerHTML = '';
+      FeesConfig.items.forEach(item => {
+        const tr = document.createElement('tr');
+        const total = (item.base || 0) + (travel || 0);
+        tr.innerHTML = `
+          <th scope="row">${item.label}</th>
+          <td>${currency(item.base)}</td>
+          <td>${travel ? currency(travel) : '$0'}</td>
+          <td><strong>${currency(total)}</strong></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    countySelect.addEventListener('change', () => renderTable(countySelect.value));
+
+    if (countySelect.value) {
+      renderTable(countySelect.value);
+    } else {
+      countySelect.value = FeesConfig.homeBase;
+      renderTable(FeesConfig.homeBase);
+    }
+  })();
+</script>
+
+  </body>
+</html>
