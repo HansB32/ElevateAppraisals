@@ -9,6 +9,7 @@
     transition: fill .18s ease, transform .12s ease;
     stroke: #ffffff;
     stroke-width: 1;
+    outline: #1f2937; /* dark gray outline on focus */
   }
 
   /* Override: Coverage counties (always orange) */
@@ -21,7 +22,7 @@
   #Idaho #Teton,
   #Idaho #Butte,
   #Idaho #Power {
-    fill: #f59e0b !important;
+    fill: #fbbf24 !important;
   }
 
   /* Hover effect - applies to all Idaho counties, including coverage counties */
@@ -31,6 +32,7 @@
     fill: #d97706 !important;  /* darker orange */
     transform: translateY(-2px); 
   }
+  
 </style>
 
 <g id="Idaho" transform="translate(5,5)" stroke="white" stroke-width="1">
