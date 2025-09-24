@@ -54,7 +54,7 @@ header.site-header.sticky {
 }
 
 .brand img {
-  height: 100px;
+  height: 150px;
   width: auto;
   display: block;
   transition: height 0.3s ease;
@@ -119,6 +119,8 @@ nav.primary a:hover,
 nav.primary a.active {
   color: var(--panel);
   background: var(--accent);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+  transform: translateY(-2px);
 }
 
 .cta {
@@ -393,23 +395,22 @@ nav.primary a.active {
 
 /* Smoother layout motion: animate flex-grow only */
 .services-grid.interactive .card {
-  --grow: 1;                /* default size */
-  flex: var(--grow) 1 0%;    /* animate flex-grow for smooth width shifts */
-  will-change: flex-grow, transform;
-  transition: flex-grow .75s var(--ease-soft),
-              transform .6s var(--ease-soft),
-              box-shadow .6s var(--ease-soft),
-              filter .3s var(--ease-soft),
-              opacity .3s var(--ease-soft);
+  flex: 1 1 0%;  /* all cards stay equal size */
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.3s ease, opacity 0.3s ease;
+  will-change: transform, box-shadow;
 }
 
-/* Active card grows, lifts slightly */
 .services-grid.interactive .card:hover,
 .services-grid.interactive .card:focus-within {
-  --grow: 2.25;             /* adjust to control how big the active one becomes */
-  transform: translateY(-2px);
-  box-shadow: 0 18px 34px rgba(17,24,39,0.10);
+  transform: scale(1.03) translateY(-4px);  /* ~3% bigger */
+  box-shadow: 0 14px 28px rgba(17,24,39,0.12);
 }
+
+.services-grid.interactive .card:active {
+  transform: scale(0.99) translateY(1px);   /* tiny press-in */
+  box-shadow: 0 8px 16px rgba(17,24,39,0.08);
+}
+
 
 /* Gentle sibling shrink with slight delay reduces jitter while moving across */
 .services-grid.interactive:hover .card:not(:hover):not(:focus-within) {
@@ -442,6 +443,38 @@ nav.primary a.active {
   opacity: 1;
   max-height: 360px;
 }
+.services-grid .card:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 8px 16px rgba(17,24,39,0.08);
+}
+.services-grid .card .n-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--accent);
+  transition: transform 0.25s ease;
+}
+.services-grid .card:hover .n-icon {
+  transform: scale(1.15);
+  transition: transform 0.25s ease;
+}
+.services-grid .card {
+  border-left: 4px solid transparent;
+}
+.services-grid .card:hover {
+  border-left: 4px solid #f59e0b; /* brand orange */
+}
+
+
+.services-grid .card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.services-grid .card p {
+  margin: 0;
+  color: var(--muted);
+}
+
 
 /* Mobile: stack and keep stable */
 @media (max-width: 880px) {
@@ -700,6 +733,75 @@ nav.primary a.active {
 .step .num{width:56px;height:56px;border-radius:999px;background:linear-gradient(180deg,rgba(245,158,11,0.12),rgba(245,158,11,0.06));display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent);font-size:1.05rem;margin-bottom:0.5rem}
 .process-line{height:2px;background:linear-gradient(90deg,rgba(245,158,11,0.18),rgba(245,158,11,0.04));flex:1;margin:0 0.5rem}
 
+/* Adjust layout for larger screens */
+@media (min-width: 640px) {
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 880px) {
+  .process-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .process-row {
+    justify-content: center;
+  }
+  .process-line {
+    margin: 0 1rem;
+  }
+}
+
+/*Coverage List*/
+.coverage-list {
+  background: #f9fafb;          /* light grey background */
+  border-radius: 12px;          /* rounded corners */
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* soft shadow */
+  max-width: 220px;             /* keeps it tight */
+  font-family: 'Inter', sans-serif;
+}
+
+.coverage-list h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #2D2D2D;              /* dark grey */
+  border-bottom: 2px solid #f59e0b; /* brand orange accent */
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.coverage-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.coverage-list li {
+  font-size: 1.1rem;        /* default is ~0.9rem; bumping slightly */
+  font-weight: 500;       /* makes text a bit bolder */
+  margin: 0.45rem 0;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.15s ease;
+  cursor: default;
+}
+
+
+.coverage-list li::before {
+  content: "✔"; 
+  color: #f59e0b;               /* orange check */
+  margin-right: 8px;
+}
+
+.coverage-list li:hover {
+  background: #fff3e0;          /* soft orange hover */
+  transform: translateX(4px);   /* subtle slide */
+}
+.coverage-list li:active {
+  transform: translateX(2px);   /* slight press effect */
+}
+
 /* Coverage page */
 .coverage-main {
   display: grid;
@@ -924,9 +1026,10 @@ nav.primary a.active {
 .form-actions .button:hover {
   background: var(--accent-2);
 }
- 
-
-
+.form-actions .button:disabled {
+  background: rgba(245,158,11,0.3);
+  cursor: not-allowed;
+}
 
 
 /* Fees table */
@@ -1018,3 +1121,65 @@ nav.primary a.active {
   .brand img{height:42px;}
 }
 
+/* Container spacing */
+.learn-section {
+  margin-top: 1.25rem;
+}
+
+/* Box style (like services cards) */
+.learn-section details {
+  border: 1px solid rgba(17,24,39,0.08);
+  border-radius: 14px;
+  background: var(--panel);
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 18px rgba(17,24,39,0.05);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+}
+
+.learn-section details:hover {
+  box-shadow: 0 10px 22px rgba(17,24,39,0.08);
+  transform: translateY(-2px);
+}
+
+/* Summary as clickable header */
+.learn-section summary {
+  font-weight: 600;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none; /* removes default carrot */
+  user-select: none;
+}
+
+/* Custom toggle icon */
+.learn-section summary::after {
+  content: "➕"; /* closed icon */
+  font-size: 1rem;
+  color: var(--muted);
+  transition: transform 0.3s ease;
+}
+
+/* Rotate icon when open */
+.learn-section details[open] summary::after {
+  content: "➖"; /* open icon */
+  transform: rotate(180deg);
+  color: #f59e0b; /* brand orange */
+}
+
+/* Expanded content */
+.learn-section p,
+.learn-section ul {
+  padding: 0 1.25rem 1rem;
+  margin: 0;
+  color: var(--muted);
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
