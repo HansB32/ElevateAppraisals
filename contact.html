@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Elevate Appraisals</title>
+  <title>Contact &mdash; Elevate Appraisals</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="Elevate Appraisals Full.png" sizes="32x32" />
   <link rel="stylesheet" href="style.css">
@@ -14,7 +14,7 @@
       <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="Elevate Appraisals home">
           <img src="Elevate Appraisals Transparent Background.png" alt="Elevate Appraisals logo" />
-          <div class="tag">Elevated Standards • Trusted Valuations</div>
+          <div class="tag">Elevated Standards &bull; Trusted Valuations</div>
         </a>
 
         <nav class="primary" aria-label="Primary navigation">
@@ -25,40 +25,53 @@
         </nav>
 
         <div class="nav-right">
-          <a class="btn-outline" href="learn.html">Learn</a>
+          <a class="btn-outline" href="learn.html">Learn More</a>
           <a class="cta" href="contact.html">Request a Quote</a>
         </div>
       </div>
     </header>
   </div>
 
-  <main class="container">
+  <main class="container contact-page">
     <h1>Contact</h1>
-    <p>If you have questions or want a quote, use the form below or email directly.</p>
-    <div class="info-box" style="margin-top:1.5rem; font-size:0.9rem; line-height:1.5; color:var(--muted); background:#f9fafb; border-left:4px solid #f59e0b; padding:1rem 1.25rem; border-radius:8px;">
-  <strong>Disclaimer:</strong> Appraisals completed for private clients (such as homeowners, attorneys, or investors) are for informational and non-lending purposes only. For mortgage financing, the lender is the client and must order the appraisal directly through their required process. Reports provided by Elevate Appraisals to private parties cannot be substituted for a lender-ordered appraisal.
-</div>
+    <p>Provide the property address, intended use, and target timeline. Process and report standards are in the <a href="learn.html">Client Reference Guide</a>.</p>
+    <ul class="contact-points">
+      <li>Property address and access details</li>
+      <li>Intended use and party ordering the report</li>
+      <li>Target delivery date and any deadlines</li>
+    </ul>
 
+    <div class="audience-note">
+      <p class="audience-line"><span class="audience-label">Private Use:</span>Request a quote using the form below.</p>
+      <p class="audience-line"><span class="audience-label">Lenders/AMCs:</span>Order through your standard engagement process; use this form for availability or coverage confirmation.</p>
+    </div>
 
     <form class="contact-form" action="mailto:elevateappraisals@outlook.com" method="POST" enctype="text/plain">
-  <div class="form-panel">
-    <label for="name">Name</label>
-    <input id="name" name="Name" required>
-    <label for="email">Email</label>
-    <input id="email" name="Email" type="email" required>
-    <label for="phone">Phone (optional)</label>
-    <input id="phone" name="Phone">
-    <label for="message">Message</label>
-    <textarea id="message" name="Message" rows="6" required placeholder="If requesting a quote, please include the property address, purpose of the appraisal, and desired turnaround time."></textarea>  </div>
-  <div class="form-actions">
-    <button class="button" type="submit">Send Request</button>
-    <a class="button" href="mailto:elevateappraisals@outlook.com">Email Directly</a>
-  </div>
-</form>
- <section style="margin-top:1rem;">
-      <h2>Need help choosing the right service?</h2>
-      <div class="card" style="margin-top:0.75rem;">
-        <p style ="color:var(--muted);">Feel free to let us know, and we’ll recommend the most appropriate appraisal type and timeline for your needs.</p>
+      <div class="form-panel surface">
+        <label for="name">Name</label>
+        <input id="name" name="Name" required>
+        <label for="email">Email</label>
+        <input id="email" name="Email" type="email" required>
+        <label for="phone">Phone (optional)</label>
+        <input id="phone" name="Phone">
+        <label for="audience">Inquiry Type</label>
+        <select id="audience" name="Inquiry Type">
+          <option value="" selected>Select an option</option>
+          <option value="Private Use">Private Use</option>
+          <option value="Lender/AMC">Lender/AMC</option>
+        </select>
+        <label for="message">Message</label>
+        <textarea id="message" name="Message" rows="6" required placeholder="Include the property address, intended use, and requested delivery date."></textarea>
+        <div class="form-actions">
+          <button class="button" type="submit">Request a Quote</button>
+          <a class="button" href="learn.html">Learn More</a>
+        </div>
+      </div>
+    </form>
+ <section style="margin-top:3rem;">
+      <h2>Service Guidance</h2>
+      <div class="card" style="margin-top:0.5rem;">
+        <p>Use the <a href="learn.html">Client Reference Guide</a> for service selection and scope expectations.</p>
       </div>
     </section>
     
@@ -68,10 +81,14 @@
       <h2>Office Hours & Turnaround</h2>
       <div class="card" style="margin-top:0.75rem;">
         <h3>Office Hours</h3>
-        <p style="color:var(--muted);">Monday - Friday: 9am - 5pm</p>
-        <p style="color:var(--muted);">Closed on Major Holidays</p>
+        <ul class="contact-points">
+          <li>Monday &ndash; Friday: 9 a.m. &ndash; 5 p.m.</li>
+          <li>Closed on major holidays</li>
+        </ul>
         <h3>Turnaround Time</h3>
-        <p style="color:var(--muted);">Typical turnaround time is 3-5 business days.</p>
+        <ul class="contact-points">
+          <li>Typical turnaround is 3&ndash;5 business days after inspection.</li>
+        </ul>
       </div>
     </section>
   </main>
@@ -83,7 +100,7 @@
           <div class="cols">
             <div class="col">
               <strong>Elevate Appraisals</strong>
-              <div style="opacity:0.9;margin-top:6px">Elevated Standards. Trusted Valuations. — Serving Southeast Idaho.</div>
+              <div style="opacity:0.9;margin-top:6px">Elevated Standards. Trusted Valuations. &mdash; Serving Southeast Idaho.</div>
             </div>
             <div class="col">
               <div><strong>Contact</strong></div>
@@ -95,7 +112,12 @@
               <div style="margin-top:6px"><a href="#" style="color:#fff;text-decoration:none">LinkedIn</a></div>
             </div>
           </div>
+          <div class="footer-trust">Certified Residential Appraiser &bull; USPAP-Compliant &bull; FHA Approved &bull; Southeast Idaho</div>
+          <div class="footer-cta"><a class="cta" href="contact.html">Request a Quote</a></div>
           <div class="footer-bottom">&copy; 2025 Elevate Appraisals. All rights reserved.</div>
+          <div class="footer-disclaimer" style="margin-top:10px;font-size:0.85rem;color:rgba(255,255,255,0.75);">
+            Disclaimer: For loan purposes, appraisals are typically ordered by the lender; appraisals completed for private use may not be accepted by your lender.
+          </div>
         </div>
       </div>
     </div>
@@ -115,7 +137,24 @@
       const revealOnScroll = () => { const offset = window.innerHeight * 0.85; revealElems.forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < offset) el.classList.add('visible'); }); };
       revealOnScroll(); window.addEventListener('scroll', revealOnScroll, {passive:true});
       document.querySelectorAll('.accordion-title').forEach(title=>title.addEventListener('click',()=>title.parentElement.classList.toggle('active')));
+
+      const params = new URLSearchParams(location.search);
+      const county = params.get('county');
+      const messageField = document.getElementById('message');
+      if (county && messageField) {
+        const prefix = `County: ${county}`;
+        if (!messageField.value.includes(prefix)) {
+          messageField.value = messageField.value ? `${prefix}\n${messageField.value}` : `${prefix}\n`;
+        }
+      }
     })();
   </script>
 </body>
 </html>
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@
             <a href="contact.html">Contact</a>
           </nav>
           <div class="nav-right">
-            <a class="btn-outline" href="learn.html">Learn</a>
+            <a class="btn-outline" href="learn.html">Learn More</a>
             <a class="cta" href="contact.html">Request a Quote</a>
             <button class="mobile-toggle" aria-expanded="false" aria-controls="mobile-menu">&#9776;</button>
           </div>
@@ -47,18 +47,19 @@
           <div class="surface-card coverage-hero-card reveal">
             <div class="coverage-hero-text">
               <span class="eyebrow">Service Area</span>
-              <h1>Local coverage, regional reach.</h1>
-              <p>Elevate Appraisals supports lenders, attorneys, and private clients across Southeast Idaho with responsive fieldwork and well-supported reports.</p>
+              <h1>Coverage with certified residential expertise.</h1>
+              <p>Certified residential valuations for private clients and lending partners throughout Southeast Idaho.</p>
+              <div class="trust-row">Certified Residential Appraiser &bull; USPAP-Compliant &bull; FHA Approved &bull; Southeast Idaho</div>
               <ul class="coverage-stats">
-                <li><span class="stat-number">9</span> core counties available for onsite inspections</li>
-                <li><span class="stat-number">1 hr</span> average response time on new assignment requests</li>
-                <li><span class="stat-number">1,000+</span> valuations delivered across residential, land, and income assets</li>
+                <li><span class="stat-number">10</span> core counties available for onsite inspections</li>
+                <li><span class="stat-number">5 Business Days</span> average turn time on new assignment requests</li>
+                <li><span class="stat-number">1,000+</span> valuations delivered for homes, residential sites, and 1&ndash;4 unit income assets</li>
               </ul>
             </div>
             <div class="coverage-hero-aside">
               <h3>Counties at a glance</h3>
               <p class="muted">Bonneville &bull; Madison &bull; Jefferson &bull; Bannock &bull; Bingham &bull; Fremont &bull; Teton &bull; Butte &bull; Power</p>
-              <a class="btn-outline" href="contact.html">Request availability</a>
+              <a class="btn-outline" href="contact.html">Request a Quote</a>
             </div>
           </div>
         </div>
@@ -78,13 +79,14 @@
               <div class="coverage-fees-header">
                 <div>
                   <h2>Travel &amp; Fees</h2>
-                  <p class="muted">Select a county to view base pricing and travel adjustments. Update FeesConfig to match your pricing.</p>
+                  <p class="muted">Select a county to view standard residential appraisal fees and any travel adjustments.</p>
                 </div>
               </div>
               <div class="fee-controls">
                 <label for="county-select" class="fee-label">County:</label>
                 <select id="county-select" class="fee-select" aria-label="Select county"></select>
                 <div id="county-note" class="muted"></div>
+                <button class="fee-copy" type="button" id="fee-copy" aria-live="polite">Copy fee summary</button>
               </div>
               <div class="fee-table-wrap">
                 <table class="fee-table" aria-describedby="county-note">
@@ -104,7 +106,7 @@
           </div>
           <div class="coverage-extra surface-card reveal">
             <h3>Out-of-Area Requests</h3>
-            <p class="muted">We review assignments outside the core counties on a case-by-case basis. Share the property details and timeline, and we will confirm availability and travel considerations.</p>
+            <p class="muted">Out-of-area requests are reviewed case by case. Share property details and timeline to confirm availability and travel considerations.</p>
           </div>
         </div>
       </section>
@@ -117,7 +119,7 @@
           <div class="cols">
             <div class="col">
               <strong>Elevate Appraisals</strong>
-              <div style="opacity:0.9;margin-top:6px">Elevated Standards. Trusted Valuations. — Serving Southeast Idaho.</div>
+              <div style="opacity:0.9;margin-top:6px">Elevated Standards. Trusted Valuations. &mdash; Serving Southeast Idaho.</div>
             </div>
             <div class="col">
               <div><strong>Contact</strong></div>
@@ -126,10 +128,15 @@
             </div>
             <div class="col">
               <div><strong>Follow</strong></div>
-              <div style="margin-top:6px"><a href="#" style="color:#fff;text-decoration:none">LinkedIn</a></div>
+              <div style="margin-top:6px"><a href="https://www.linkedin.com/in/hans-blanchard-8b516b230/" style="color:#fff;text-decoration:none">LinkedIn</a></div>
             </div>
           </div>
+          <div class="footer-trust">Certified Residential Appraiser &bull; USPAP-Compliant &bull; FHA Approved &bull; Southeast Idaho</div>
+          <div class="footer-cta"><a class="cta" href="contact.html">Request a Quote</a></div>
           <div class="footer-bottom">&copy; 2025 Elevate Appraisals. All rights reserved.</div>
+          <div class="footer-disclaimer" style="margin-top:10px;font-size:0.85rem;color:rgba(255,255,255,0.75);">
+            Disclaimer: For loan purposes, appraisals are typically ordered by the lender; appraisals completed for private use may not be accepted by your lender.
+          </div>
         </div>
       </div>
     </div>
@@ -275,6 +282,8 @@
     const countySelect = document.getElementById('county-select');
     const tbody = document.getElementById('fee-tbody');
     const note = document.getElementById('county-note');
+    const copyBtn = document.getElementById('fee-copy');
+    const feesCard = document.getElementById('fees');
     if (!countySelect || !tbody) return;
 
     const FeesConfig = {
@@ -328,6 +337,19 @@
       countySelect.value = preset;
     }
 
+    function flashFees() {
+      if (!feesCard) return;
+      feesCard.classList.add('fee-highlight');
+      window.setTimeout(() => feesCard.classList.remove('fee-highlight'), 1200);
+    }
+
+    function buildSummary(county, travel) {
+      const items = FeesConfig.items
+        .map(item => `${item.label}: ${currency((item.base || 0) + (travel || 0))}`)
+        .join('; ');
+      return `County: ${county} (travel ${currency(travel || 0)}). ${items}.`;
+    }
+
     function renderTable(county) {
       const travel = FeesConfig.counties[county] ?? 0;
       note.textContent = county ? county + ' county - travel adj. ' + currency(travel) : '';
@@ -343,9 +365,34 @@
         `;
         tbody.appendChild(tr);
       });
+      if (copyBtn) copyBtn.dataset.summary = buildSummary(county, travel);
     }
 
-    countySelect.addEventListener('change', () => renderTable(countySelect.value));
+    countySelect.addEventListener('change', () => {
+      renderTable(countySelect.value);
+      flashFees();
+    });
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        const summary = copyBtn.dataset.summary;
+        if (!summary) return;
+        try {
+          await navigator.clipboard.writeText(summary);
+          copyBtn.textContent = 'Copied';
+          window.setTimeout(() => { copyBtn.textContent = 'Copy fee summary'; }, 1800);
+        } catch (err) {
+          const helper = document.createElement('textarea');
+          helper.value = summary;
+          document.body.appendChild(helper);
+          helper.select();
+          document.execCommand('copy');
+          helper.remove();
+          copyBtn.textContent = 'Copied';
+          window.setTimeout(() => { copyBtn.textContent = 'Copy fee summary'; }, 1800);
+        }
+      });
+    }
 
     if (countySelect.value) {
       renderTable(countySelect.value);
@@ -358,3 +405,5 @@
 
   </body>
 </html>
+
+
